@@ -19,10 +19,7 @@ export default function HomePage(changeDisplay) {
 
   return (
     <div>
-      <div>
-
-      </div>
-      <div>
+      <div id ="homeIds">
         <Row className={"home-row"}>
           <Col md={3}>
             <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ffujifilm-x.com%2Fglobal%2Fproducts%2Fcameras%2Fgfx100s%2Fsample-images%2F&psig=AOvVaw3wC4VLaD99MeONsk22YcI0&ust=1673905519424000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCLCixZDGyvwCFQAAAAAdAAAAABAE" /></Col>

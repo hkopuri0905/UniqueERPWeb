@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 export default function NavigationBar({changeDisplay}) {
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar id = "nav" bg="blue" expand="lg">
       <Container>
         <div onClick={()=>changeDisplay("home")}>
           Home

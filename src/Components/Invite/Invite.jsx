@@ -14,6 +14,7 @@ export default function Invite(changeDisplay) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [emailID, setEmailID] = useState();
+  const [yourName, setYourName] = useState();
 
   function clear() {
     setCandidateID("");
@@ -21,6 +22,7 @@ export default function Invite(changeDisplay) {
     setFirstName("");
     setLastName("");
     setEmailID("");
+    setYourName();
   }
 
   function cancel() {
@@ -36,7 +38,8 @@ export default function Invite(changeDisplay) {
         email: userEmailID,
         inviteeFirstName: firstName,
         inviteeLastName: lastName,
-        inviteeEmailId: emailID
+        inviteeEmailId: emailID,
+        yourName: yourName,
       })
     })
     .then((response) => response.json())
@@ -52,13 +55,13 @@ export default function Invite(changeDisplay) {
   }
 
   function changeInput(event, type) {
-    if (type === "candidateID") {
+    /*if (type === "candidateID") {
       setCandidateID(event.target.value);
     }
     else if (type === "userEmailID") {
       setUserEmailID(event.target.value);
-    }
-    else if (type === "firstName") {
+    }*/
+   if (type === "firstName") {
       setFirstName(event.target.value);
     }
     else if (type === "lastName") {
@@ -67,38 +70,47 @@ export default function Invite(changeDisplay) {
     else if (type === "emailID") {
       setEmailID(event.target.value);
     }
+    else if (type === "yourName") {
+      setEmailID(event.target.value);
+    }
   }
   
 
   return (
-    <div>
+    <div id = "inviteInfo">
       <div>
-        < Row>
+        <h3> Candidate Referral Form</h3>
+        <h4> I am Referring</h4>
+        {/*< Row>
           <Col md={6}>My Candidate ID:</Col>
           <Col md={6}><input type="text" value={candidateID} onChange={(e)=>changeInput(e, 'candidateID')}/></Col>
         </Row>
         < Row>
           <Col md={6}>My Email ID:</Col>
           <Col md={6}><input type="text" value={userEmailID} onChange={(e)=>changeInput(e, 'userEmailID')}/></Col>
-        </Row>
+  </Row> */}
         < Row>
           <Col md={6}>First Name</Col>
-          <Col md={6}><input type="text" value={firstName} onChange={(e)=>changeInput(e, 'firstName')}/></Col>
+          <Col md={6}><input type="text" id = "fntextbox" value={firstName} onChange={(e)=>changeInput(e, 'firstName')}/></Col>
         </Row>
         < Row>
           <Col md={6}>Last Name</Col>
-          <Col md={6}><input type="text" value={lastName} onChange={(e)=>changeInput(e, 'lastName')}/></Col>
+          <Col md={6}><input type="text" id = "lntextbox" value={lastName} onChange={(e)=>changeInput(e, 'lastName')}/></Col>
         </Row>
         < Row>
           <Col md={6}>Email ID</Col>
-          <Col md={6}><input type="text" value={emailID}  onChange={(e)=>changeInput(e, 'emailID')}/></Col>
+          <Col md={6}><input type="text" id ="emailidtextbox" value={emailID}  onChange={(e)=>changeInput(e, 'emailID')}/></Col>
+        </Row>
+        < Row>
+          <Col md={6}>Your Name</Col>
+          <Col md={6}><input type="text" id ="yournametextbox" value={yourName}  onChange={(e)=>changeInput(e, 'yourName')}/></Col>
         </Row>
       </div>
-      <Row>
+      <div class="buttons">
         <Col md={{span:1, offset: 5}}><Button type="button" onClick={() => clear()}>Clear</Button></Col>
         <Col md={1}><Button type="button" onClick={() => cancel()}>Cancel </Button></Col>
         <Col md={1}><Button type="button" onClick={() => sendInvite()}> Send Invite </Button></Col>
-      </Row>
+      </div>
     </div>
   );
 }
