@@ -14,7 +14,7 @@ export default function Login() {
   const [displayContent, setDisplayContent] = useState();
   const [userEmail, setUserEmail] = useState();
   const [OTP, setOTP] = useState();
-  const [userLoggedin, setUserLoggedin] = useState(true);
+  const [userLoggedin, setUserLoggedin] = useState(false);
    const [candidateId, setCandidateId] = useState("");
 
   function requestOTP() {
