@@ -74,13 +74,13 @@ export default function Login() {
   }, [display]);
 
   return (
-    <div>
+    <div class ="login_page">
       <div>
         {!userLoggedin && (
           <div>
-            <Row > <h2> Log In to Your Account </h2></Row>
+            <Row > <h3> Log In to Your Account </h3></Row>
             <Row>
-              <Col md={3}> Enter Your Registered Enail ID</Col>
+              <Col md={3}> Enter Your Registered Email ID</Col>
               <Col md={2}>
                 <input type="text" placeholder="email" value={userEmail} onChange={changeUserEmail} />
               </Col>
@@ -95,8 +95,8 @@ export default function Login() {
               <Col md={2}>
                 <input type="text" placeholder="OTP" value={OTP} onChange={changeOTP} />
               </Col>
-              <Col md={1}>
-                <Button type="submit" onClick={() => login()}> Login </Button>
+              <Col id = "login-button" md={1}>
+                <Button type="submit"  onClick={() => login()}> Login </Button>
               </Col></Row>
           </div>)}
       </div>

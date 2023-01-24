@@ -12,7 +12,16 @@
   align-items: center;
 }
 
-
+.login_page {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  }
+#login-button {
+  height: 100px;
+}
 #fntextbox:hover {
   background-color: black;
   cursor: help;
