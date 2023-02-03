@@ -10,15 +10,111 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+}
+
+
+.header {
+    min-width: 300px;
+}
+
+
+ .header {
+    width: 90%;
+    margin: 4% auto;
+}
+.header{
+    width: 444px;
+    margin: 56px auto 0;
+    text-align: left;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, em, img, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: center;
+    background: transparent;
+}
+* {
+    box-sizing: border-box;
+    letter-spacing: -0.2px;
 }
 
 .login_page {
     display: grid;
     place-items: center;
-    height: 100vh;
-    grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   }
+  .main_header {
+    min-height: inherit;
+}
+div {
+  display: block;
+}
+
+.main_header {
+  min-height: 100vh;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  display: flex;
+  box-sizing: border-box;
+}
+
+  .header {
+    min-height: 100vh;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    display: flex;
+    box-sizing: border-box;
+}
+.header h1 {
+  font-size: 1.25rem;
+  margin-left: 32px;
+}
+.header h1 span {
+  display: inline-block;
+  margin-right: 8px;
+}
+.header h1 {
+  font-size: 1.4275rem;
+  font-family: var(--font-semibold);
+  line-height: 27px;
+  display: inline-block;
+  text-align: left;
+  margin-left: 48px;
+  color: var(--grey-text1-color);
+}
+
+.header h1 {
+  letter-spacing: -1px;
+}
+.vndr-acc-hdr {
+  display: table;
+  width: 100%;
+  padding: 48px 48px 0px 48px;
+}
+.vndr-acc-hdr {
+  padding: 32px 32px 0 32px;
+}
+
+  #faq{
+    position: bottom;
+    white-space: nowrap;
+    float: left;
+  }
+
+  #homeIds, #faq{
+    display: block;
+  }
+
 #login-button {
   height: 100px;
 }

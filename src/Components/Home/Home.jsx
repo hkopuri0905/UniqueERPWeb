@@ -49,6 +49,9 @@ You know a project or resourcing opportunities within your network, You can brin
           </Col>
         </Row>
       </div>
+      <div id ="faq" >
+        <h3 >For any additional questions, Please visit <a>https://contingentpros.com/faqs/</a></h3>
+      </div>
     </div>
   );
 }

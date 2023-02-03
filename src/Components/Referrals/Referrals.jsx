@@ -15,7 +15,7 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
   const [bonusDetails, setBonusDetails] = useState([]);
 
   async function getCandidates() {
-    await fetch("http://loginauth-env.eba-kndvgpuj.us-east-2.elasticbeanstalk.com/referralDetails", {
+    await fetch("https://www.contingentpro.com/referralDetails", {
       method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

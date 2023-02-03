@@ -18,7 +18,7 @@ export default function Login() {
    const [candidateId, setCandidateId] = useState("");
 
   function requestOTP() {
-    fetch("http://loginauth-env.eba-kndvgpuj.us-east-2.elasticbeanstalk.com/generate",
+    fetch("https://www.contingentpro.com/generate",
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ export default function Login() {
 
   async function login() 
   { 
-    await fetch("http://loginauth-env.eba-kndvgpuj.us-east-2.elasticbeanstalk.com/validate", 
+    await fetch("https://www.contingentpro.com/validate", 
   { 
     method: 'POST',
      headers: { 'Content-Type': 'application/json' }, 
@@ -74,7 +74,12 @@ export default function Login() {
   }, [display]);
 
   return (
+    <div class = "main_header">
+    <div class = "header">
+      <h1><span class="cnl-slogan">Welcome to the </span>Candidate Portal</h1>
     <div class ="login_page">
+      <section>
+      <div class="vndr-acc-hdr"> <span class=""> <a rel="noopener noreferrer" href="https://contingentpros.com/jobs" target="_blank">  <img lt-prop-title="Unique ERP Inc" lt-prop-tooltip-config="{&quot;position&quot;:&quot;followcursor&quot; ,&quot;appearance&quot; : &quot;box&quot;}" src="/recruit/viewImage?fileId=aeu5401d0f02dce2944c18a16e4f190cfba95&amp;zgId=794296908"></img>  </a> </span> </div>
       <div>
         {!userLoggedin && (
           <div>
@@ -106,6 +111,9 @@ export default function Login() {
           {displayContent}
         </div>)}
       </div>
+      </section>
     </div >
+    </div>
+    </div>
   );
 }

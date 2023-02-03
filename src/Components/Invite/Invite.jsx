@@ -30,7 +30,7 @@ export default function Invite(changeDisplay) {
   }
 
   async function sendInvite() {
-    await  fetch("http://loginauth-env.eba-kndvgpuj.us-east-2.elasticbeanstalk.com/invite", {
+    await  fetch("https://www.contingentpro.com/invite", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
