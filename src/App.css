@@ -3,56 +3,133 @@
 }
 
 .home-row {
-  height: 100px;
+  min-height: 200px;
 }
 
-#homeIds{
+#homeIds {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 
 .header {
-    min-width: 300px;
+  min-width: 300px;
 }
 
 
- .header {
-    width: 90%;
-    margin: 4% auto;
+.header {
+  width: 90%;
+  margin: 4% auto;
 }
-.header{
-    width: 444px;
-    margin: 56px auto 0;
-    text-align: left;
+
+.header {
+  margin: 56px auto 0;
+  text-align: left;
 }
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, em, img, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    vertical-align: center;
-    background: transparent;
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+em,
+img,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: center;
+  background: transparent;
 }
+
+.signin_header_class {
+  padding-top: 24px;
+  padding: 40px 0 0;
+  position: relative;
+}
+
+.row h3 {
+  padding: 0 32px !important;
+  font: normal 1.3125rem var(--font-semibold);
+  padding: 0 48px !important;
+}
+
+
 * {
-    box-sizing: border-box;
-    letter-spacing: -0.2px;
+  box-sizing: border-box;
+  letter-spacing: -0.2px;
 }
 
 .login_page {
-    display: grid;
-    place-items: center;
-  }
-  .main_header {
-    min-height: inherit;
+  display: grid;
+  place-items: center;
 }
+
+.main_header {
+  min-height: inherit;
+}
+
 div {
   display: block;
 }
 
-.main_header {
+.login_page {
   min-height: 100vh;
   -webkit-box-align: center !important;
   -ms-flex-align: center !important;
@@ -64,25 +141,28 @@ div {
   box-sizing: border-box;
 }
 
-  .header {
-    min-height: 100vh;
-    -webkit-box-align: center !important;
-    -ms-flex-align: center !important;
-    align-items: center !important;
-    -webkit-box-pack: center !important;
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    display: flex;
-    box-sizing: border-box;
+.header {
+  min-height: 100vh;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+  display: flex;
+  box-sizing: border-box;
 }
+
 .header h1 {
   font-size: 1.25rem;
   margin-left: 32px;
 }
+
 .header h1 span {
   display: inline-block;
   margin-right: 8px;
 }
+
 .header h1 {
   font-size: 1.4275rem;
   font-family: var(--font-semibold);
@@ -96,52 +176,56 @@ div {
 .header h1 {
   letter-spacing: -1px;
 }
+
 .vndr-acc-hdr {
   display: table;
   width: 100%;
   padding: 48px 48px 0px 48px;
 }
+
 .vndr-acc-hdr {
   padding: 32px 32px 0 32px;
 }
 
-  #faq{
-    position: bottom;
-    white-space: nowrap;
-    float: left;
-  }
+#faq {
+  position: bottom;
+  white-space: nowrap;
+  float: left;
+}
 
-  #homeIds, #faq{
-    display: block;
-  }
+#homeIds,
+#faq {
+  display: block;
+}
 
 #login-button {
   height: 100px;
 }
+
 #fntextbox:hover {
-  background-color: black;
-  cursor: help;
+  /* background-color: black; */
+  /* cursor: help; */
 }
+
 #fntextbox:hover::before {
-   content: "Referring Candidate First Name";
-   position: absolute;
-   padding: 4px;
-   background-color: white;
-   color: black;
+  content: "Referring Candidate First Name";
+  position: absolute;
+  padding: 4px;
+  background-color: white;
+  color: black;
 }
 
 #inviteInfo {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.buttons {
+/* .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
-}
+} */
 
 #nav {
   height: "50px";
@@ -151,11 +235,27 @@ div {
   color: #fff;
 }
 
-#box1,#box2,#box3 {
-    width: 200px;
-    height: 100px;
-    background-color: blue;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 10px 10px 5px grey;
+#box1,
+#box2,
+#box3 {
+  width: 200px;
+  background-color: blue;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px grey;
+}
+
+.navigation_item {
+  height: 35px;
+  background-color: blue;
+  color: white;
+}
+
+.navigation_item:hover {
+  cursor: pointer;
+}
+
+#inviteInfo input{
+  width: 50%;
+
 }

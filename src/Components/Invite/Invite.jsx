@@ -90,27 +90,27 @@ export default function Invite(changeDisplay) {
           <Col md={6}><input type="text" value={userEmailID} onChange={(e)=>changeInput(e, 'userEmailID')}/></Col>
   </Row> */}
         < Row>
-          <Col md={6}>First Name</Col>
-          <Col md={6}><input type="text" id = "fntextbox" value={firstName} onChange={(e)=>changeInput(e, 'firstName')}/></Col>
+          <Col md={4}>First Name</Col>
+          <Col md={8}><input type="text" id = "fntextbox" value={firstName} onChange={(e)=>changeInput(e, 'firstName')}/></Col>
         </Row>
         < Row>
-          <Col md={6}>Last Name</Col>
-          <Col md={6}><input type="text" id = "lntextbox" value={lastName} onChange={(e)=>changeInput(e, 'lastName')}/></Col>
+          <Col md={4}>Last Name</Col>
+          <Col md={8}><input type="text" id = "lntextbox" value={lastName} onChange={(e)=>changeInput(e, 'lastName')}/></Col>
         </Row>
         < Row>
-          <Col md={6}>Email ID</Col>
-          <Col md={6}><input type="text" id ="emailidtextbox" value={emailID}  onChange={(e)=>changeInput(e, 'emailID')}/></Col>
+          <Col md={4}>Email ID</Col>
+          <Col md={8}><input type="text" id ="emailidtextbox" value={emailID}  onChange={(e)=>changeInput(e, 'emailID')}/></Col>
         </Row>
         < Row>
-          <Col md={6}>Your Name</Col>
-          <Col md={6}><input type="text" id ="yournametextbox" value={yourName}  onChange={(e)=>changeInput(e, 'yourName')}/></Col>
+          <Col md={4}>Your Name</Col>
+          <Col md={8}><input type="text" id ="yournametextbox" value={yourName}  onChange={(e)=>changeInput(e, 'yourName')}/></Col>
         </Row>
       </div>
-      <div class="buttons">
-        <Col md={{span:1, offset: 5}}><Button type="button" onClick={() => clear()}>Clear</Button></Col>
+      <Row className="buttons">
+        <Col md={{span:1, offset: 3}}><Button type="button" onClick={() => clear()}>Clear</Button></Col>
         <Col md={1}><Button type="button" onClick={() => cancel()}>Cancel </Button></Col>
-        <Col md={1}><Button type="button" onClick={() => sendInvite()}> Send Invite </Button></Col>
-      </div>
+        <Col md={2}><Button type="button" onClick={() => sendInvite()}> Send Invite </Button></Col>
+      </Row>
     </div>
   );
 }
