@@ -2,6 +2,11 @@
   margin: 5px;
 }
 
+img {
+  width: 200px;
+  height: 150px;
+}
+
 .home-row {
   min-height: 200px;
 }
