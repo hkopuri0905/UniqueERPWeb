@@ -13,19 +13,18 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
 
   const [candidates, setCandidates] = useState([]);
   const [bonusDetails, setBonusDetails] = useState([]);
-
+  console.log(candidateId);
   async function getCandidates() {
     await fetch("https://www.contingentpro.com/referralDetails", {
       method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            "email": emailId ,    //"uniquecand4@gmail.com"
-            "candidateId":  candidateId   //"UN_11_CAND"
+            email: emailId,    //"uniquecand4@gmail.com" emailId
+            candidateId: candidateId  //"UN_11_CAND"  candidateId
         })
     })
       .then((response) => response.json())
         .then((data) => {
-            console.log(data.referredBonusDetails)
         setCandidates(data.referredCandidateDetails)
         setBonusDetails(data.referredBonusDetails)
 
@@ -33,16 +32,6 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
       .catch((error) => console.error(error))
   }
 
-  /*async function getBonusDetails() {
-    await fetch("http://loginauth-env.eba-kndvgpuj.us-east-2.elasticbeanstalk.com/referralDetails", {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((data) => {
-        setCandidates(data.json())
-      })
-      .catch((error) => console.error(error))
-  }*/
 
   useEffect(() => {
     getCandidates();

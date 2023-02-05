@@ -38,15 +38,20 @@ export default function Login() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: userEmail, otp: OTP })
       })
-      .then((resp) => resp)
-      .then((res) => { var x = res; if (x.status == 200) { setCandidateId(x.json().candidateId); setUserLoggedin(true); } })
+      .then((resp) => resp.json())
+      .then((res) =>  { 
+        //var x = res;  
+        //if (resp.status == 200)  {
+           setCandidateId(res.candidateId);
+           setUserLoggedin(true);
+        // }
+         })
       .catch((error) => console.error(error));
   };
 
   function changeUserEmail(event) {
     setUserEmail(event.target.value);
   }
-
   function changeOTP(event) {
     setOTP(event.target.value);
   }
@@ -84,7 +89,7 @@ export default function Login() {
               <div class=""> <span class="">
                 <a rel="noopener noreferrer" href="https://contingentpros.com/jobs" target="_blank">
                   <img lt-prop-title="Unique ERP Inc" lt-prop-tooltip-config="{&quot;position&quot;:&quot;followcursor&quot; ,&quot;appearance&quot; : &quot;box&quot;}"
-                    src="file.png" />
+                    src={require('./file.png')} />
                 </a>
               </span>
               </div>
@@ -119,10 +124,10 @@ export default function Login() {
       </div>
       <div>
         {userLoggedin && (
-        <div>
-          <NavigationBar changeDisplay={changeDisplay} />
-          {displayContent}
-        </div>)}
+          <div>
+            <NavigationBar changeDisplay={changeDisplay} />
+            {displayContent}
+          </div>)}
       </div>
     </div>
   );
