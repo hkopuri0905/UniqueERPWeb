@@ -7,8 +7,9 @@ import { useState } from "react";
 import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
-export default function Referrals({emailId : emailId, candidateId: candidateId}) {
+export default function Referrals({ emailId: emailId, candidateId: candidateId }) {
 
 
   const [candidates, setCandidates] = useState([]);
@@ -17,14 +18,14 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
   async function getCandidates() {
     await fetch("https://www.contingentpro.com/referralDetails", {
       method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            email: emailId,    //"uniquecand4@gmail.com" emailId
-            candidateId: candidateId  //"UN_11_CAND"  candidateId
-        })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: emailId,    //"uniquecand4@gmail.com" emailId
+        candidateId: candidateId  //"UN_11_CAND"  candidateId
+      })
     })
-      .then((response) => response.json())
-        .then((data) => {
+      .then((response) => response.json())
+      .then((data) => {
         setCandidates(data.referredCandidateDetails)
         setBonusDetails(data.referredBonusDetails)
 
@@ -48,7 +49,7 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
       </div>
       <Row>
         <Col md={6}>
-          <Table striped bordered hover>
+          {/* <Table striped bordered hover>
             <thead>
               <tr>
                 <th>S.NO</th>
@@ -72,7 +73,32 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
               }
               )}
             </tbody>
-          </Table>
+          </Table> */}
+          <MDBTable>
+            <MDBTableHead light style= {{color: '#3b71ca'}}>
+              <tr>
+                <th>S.NO</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email ID</th>
+                <th>Status</th>
+              </tr>
+            </MDBTableHead>
+            <MDBTableBody>
+              {candidates.length > 0 && candidates.map((candidate, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index}</td>
+                    <td>{candidate.firstName}</td>
+                    <td>{candidate.lastName}</td>
+                    <td>{candidate.emailID}</td>
+                    <td>{candidate.status}</td>
+                  </tr>
+                )
+              }
+              )}
+            </MDBTableBody>
+          </MDBTable>
         </Col>
         <Col md={6}>
           <Row>Referral Bonus Details </Row>
@@ -81,25 +107,25 @@ export default function Referrals({emailId : emailId, candidateId: candidateId})
               Number of Consultants Referred
             </Col>
             <Col>
-              :{bonusDetails.length >0 &&  bonusDetails[0].creditValue}</Col>
+              :{bonusDetails.length > 0 && bonusDetails[0].creditValue}</Col>
           </Row>
           <Row>
             <Col md={6}>
 
-              Referral Credits 
+              Referral Credits
             </Col>
-            <Col>:{bonusDetails.length >0 && bonusDetails[2].creditValue}</Col>
+            <Col>:{bonusDetails.length > 0 && bonusDetails[2].creditValue}</Col>
           </Row>
           <Row>
             <Col md={6}>
 
-              Interview Credits</Col><Col> :{bonusDetails.length >0 && bonusDetails[3].creditValue}</Col>
+              Interview Credits</Col><Col> :{bonusDetails.length > 0 && bonusDetails[3].creditValue}</Col>
           </Row>
           <Row>
             <Col md={6}>
 
               Credits Paid
-            </Col><Col>:{bonusDetails.length >0 && bonusDetails[1].creditValue}</Col>
+            </Col><Col>:{bonusDetails.length > 0 && bonusDetails[1].creditValue}</Col>
           </Row>
         </Col>
       </Row>
