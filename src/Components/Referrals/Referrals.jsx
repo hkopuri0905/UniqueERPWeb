@@ -8,6 +8,8 @@ import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import NavigationBar from "../Navbar";
+
 
 export default function Referrals({ emailId: emailId, candidateId: candidateId }) {
 
@@ -44,6 +46,7 @@ export default function Referrals({ emailId: emailId, candidateId: candidateId }
 
   return (
     <div>
+    <NavigationBar />
       <div>
         <h4>Referred Candidates Details:</h4>
       </div>

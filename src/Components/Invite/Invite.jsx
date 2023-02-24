@@ -17,6 +17,8 @@ import {
   MDBCheckbox
 }
   from 'mdb-react-ui-kit';
+import NavigationBar from "../Navbar";
+
 
 
 export default function Invite(changeDisplay) {
@@ -124,6 +126,8 @@ export default function Invite(changeDisplay) {
     //     </Row>
     //   </div>
 
+    <React.Fragment>
+    <NavigationBar />
     <MDBCard className='bg-white my-5 mx-auto' style={{ border: 'false', boxShadow: 'none', padding: '0', maxWidth: '500px' }}>
       <MDBCardBody className='p-5 w-100 d-flex flex-column'>
         <MDBRow className='mb-4'>
@@ -178,6 +182,7 @@ export default function Invite(changeDisplay) {
 
       </MDBCardBody>
     </MDBCard>
+    </React.Fragment>
     // </form>
 
   );
