@@ -24,7 +24,7 @@ import {
 
 
 
-export default function Login({setUserEmail, setOTP,userEmail,OTP,requestOTP,login }) {
+export default function Login({setUserEmail, setOTP,userEmail, OTP,requestOTP,login }) {
   const [display, setDisplay] = useState("");
   const [displayContent, setDisplayContent] = useState();
   //const [userEmail, setUserEmail] = useState();

@@ -8,12 +8,13 @@ import {
   MDBNavbarItem,
   MDBNavbarLink,
   MDBCollapse,
-  MDBNavLink 
+  MDBNavLink,
+  MDBRow, MDBCol 
 } from 'mdb-react-ui-kit';
 
 import { Link } from 'react-router-dom';
 
-export default function NavigationBar() {
+export default function NavigationBar({userEmail,candidateId,handleLogout}) {
 
   // return (
   //   <Row>
@@ -30,7 +31,29 @@ export default function NavigationBar() {
   //   </Row>
   // );
 
+  
+  // return (
+  //   <div>
+  //     {userLoggedin? (
+  //       <div>
+  //         <p>You are logged in.</p>
+  //         <button onClick={handleLogout}>Logout</button>
+  //       </div>
+  //     ) : (
+  //       <div>
+  //         <p>You are logged out.</p>
+  //         <p>Please log in to continue.</p>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
+      
+
+
   return (
+    <div>
+
+   
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
         <MDBCollapse navbar >
@@ -46,12 +69,24 @@ export default function NavigationBar() {
               </MDBNavbarLink >
               </MDBNavbarItem>
               <MDBNavbarItem>
-              <MDBNavbarLink><Link to="/">Logout</Link> 
+              <MDBNavbarLink onClick={handleLogout}><Link to="/">Logout</Link> 
               </MDBNavbarLink >
             </MDBNavbarItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>
+    <MDBRow>
+        <MDBCol size='md'>
+         
+        </MDBCol>
+        <MDBCol size='md'>
+        <h4>EmailId:{userEmail}</h4>
+        </MDBCol>
+        <MDBCol size='md'>
+        <h4>CandidateId:{candidateId}</h4>
+        </MDBCol>
+      </MDBRow>
+    </div>
   );
 }

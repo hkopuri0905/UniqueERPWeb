@@ -21,7 +21,7 @@ import NavigationBar from "../Navbar";
 
 
 
-export default function Invite(changeDisplay) {
+export default function Invite({changeDisplay,userEmail,candidateId,handleLogout}) {
 
   const [candidateID, setCandidateID] = useState();
   const [userEmailID, setUserEmailID] = useState();
@@ -90,44 +90,9 @@ export default function Invite(changeDisplay) {
 
 
   return (
-    //   <div id = "inviteInfo">
-    //     <div>
-    //       <h3> Candidate Referral Form</h3>
-    //       <h4> I am Referring</h4>
-    //       {/*< Row>
-    //         <Col md={6}>My Candidate ID:</Col>
-    //         <Col md={6}><input type="text" value={candidateID} onChange={(e)=>changeInput(e, 'candidateID')}/></Col>
-    //       </Row>
-    //       < Row>
-    //         <Col md={6}>My Email ID:</Col>
-    //         <Col md={6}><input type="text" value={userEmailID} onChange={(e)=>changeInput(e, 'userEmailID')}/></Col>
-    // </Row> */}
-    //       < Row>
-    //         <Col md={4}>First Name</Col>
-    //         <Col md={8}><input type="text" id = "fntextbox" value={firstName} onChange={(e)=>changeInput(e, 'firstName')}/></Col>
-    //       </Row>
-    //       < Row>
-    //         <Col md={4}>Last Name</Col>
-    //         <Col md={8}><input type="text" id = "lntextbox" value={lastName} onChange={(e)=>changeInput(e, 'lastName')}/></Col>
-    //       </Row>
-    //       < Row>
-    //         <Col md={4}>Email ID</Col>
-    //         <Col md={8}><input type="text" id ="emailidtextbox" value={emailID}  onChange={(e)=>changeInput(e, 'emailID')}/></Col>
-    //       </Row>
-    //       < Row>
-    //         <Col md={4}>Your Name</Col>
-    //         <Col md={8}><input type="text" id ="yournametextbox" value={yourName}  onChange={(e)=>changeInput(e, 'yourName')}/></Col>
-    //       </Row>
-    //     </div>
-    //     <Row className="buttons">
-    //       <Col md={{span:1, offset: 3}}><Button type="button" onClick={() => clear()}>Clear</Button></Col>
-    //       <Col md={1}><Button type="button" onClick={() => cancel()}>Cancel </Button></Col>
-    //       <Col md={2}><Button type="button" onClick={() => sendInvite()}> Send Invite </Button></Col>
-    //     </Row>
-    //   </div>
 
     <React.Fragment>
-    <NavigationBar />
+    <NavigationBar   userEmail={userEmail} candidateId={candidateId} handleLogout={handleLogout}/>
     <MDBCard className='bg-white my-5 mx-auto' style={{ border: 'false', boxShadow: 'none', padding: '0', maxWidth: '500px' }}>
       <MDBCardBody className='p-5 w-100 d-flex flex-column'>
         <MDBRow className='mb-4'>

@@ -11,6 +11,8 @@ import ProtectedRoute from './Components/GuardedRouter';
 
 
 
+
+
 function App() {
     // return (
     //   <div className="App">
@@ -52,13 +54,22 @@ function App() {
         .then((resp) => resp.json())
         .then((res) => {
           //var x = res;  
-          //if (resp.status == 200)  {
+          if (res.candidateId)  {
           setCandidateId(res.candidateId);
           setUserLoggedin(true);
           navigate("/home");
-          // }
+          }
         })
         .catch((error) => console.error(error));
+    };
+
+    const handleLogout = () => {
+      alert("You are currently logging out")
+      setUserLoggedin(false);
+      setLoggedOut(true);
+      setUserEmail("")
+      setOTP("")
+
     };
 
     
@@ -66,17 +77,17 @@ function App() {
 
     <div>
     <Routes>
-       <Route path="/" element={<Login  setUserEmail={setUserEmail} setOTP={setOTP} userEmail={userEmail} OTP={OTP} requestOTP={requestOTP} login={login}/>}/> 
+       <Route path="/" element={<Login  setUserEmail={setUserEmail} setOTP={setOTP}  OTP={OTP} requestOTP={requestOTP} login={login}/>}/> 
         <Route exact path="/home" element={
             <ProtectedRoute user={userLoggedin}>
-              <Home />
+              <Home userEmail={userEmail} candidateId={candidateId} handleLogout={handleLogout}/>
             </ProtectedRoute>}/>
         <Route exact path="/invite" element={
             <ProtectedRoute user={userLoggedin}>
-              <Invite />
+              <Invite userEmail={userEmail} candidateId={candidateId} handleLogout={handleLogout}/>
             </ProtectedRoute>}/> 
         <Route exact path="/referrals" element={<ProtectedRoute user={userLoggedin}>
-              <Referrals emailId={userEmail} candidateId={candidateId} />
+              <Referrals emailId={userEmail} candidateId={candidateId} handleLogout={handleLogout}/>
             </ProtectedRoute>}/>
             <Route exact path="/logout" element={<ProtectedRoute user={loggedOut}>
               <Logout/>
@@ -87,40 +98,12 @@ function App() {
 </div>
   );
 
-  function LogoutButton() {
+ 
    
 
-  const handleLogout = () => {
-    setUserLoggedin(false);
-    setLoggedOut(true);
-  };
+ 
 
-  
-
-  useEffect(() => {
-    if (!userLoggedin) {
-      // If the user is logged out, redirect them to a public page
-      return <Navigate to="/"/>;
-    }
-  });
-
-  return (
-    <div>
-      {userLoggedin? (
-        <div>
-          <p>You are logged in.</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <p>You are logged out.</p>
-          <p>Please log in to continue.</p>
-        </div>
-      )}
-    </div>
-  );
-}
-}
+        }
 
 
 export default App;

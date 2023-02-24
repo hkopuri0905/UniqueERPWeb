@@ -11,7 +11,7 @@ import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import NavigationBar from "../Navbar";
 
 
-export default function Referrals({ emailId: emailId, candidateId: candidateId }) {
+export default function Referrals({ emailId: emailId, candidateId: candidateId, handleLogout }) {
 
 
   const [candidates, setCandidates] = useState([]);
@@ -46,7 +46,7 @@ export default function Referrals({ emailId: emailId, candidateId: candidateId }
 
   return (
     <div>
-    <NavigationBar />
+    <NavigationBar userEmail={emailId} candidateId={candidateId} handleLogout={handleLogout} />
       <div>
         <h4>Referred Candidates Details:</h4>
       </div>
