@@ -16,7 +16,6 @@ export default function Referrals({ emailId: emailId, candidateId: candidateId, 
 
   const [candidates, setCandidates] = useState([]);
   const [bonusDetails, setBonusDetails] = useState([]);
-  console.log(candidateId);
   async function getCandidates() {
     await fetch("https://www.contingentpro.com/referralDetails", {
       method: 'POST',
@@ -47,36 +46,11 @@ export default function Referrals({ emailId: emailId, candidateId: candidateId, 
   return (
     <div>
     <NavigationBar userEmail={emailId} candidateId={candidateId} handleLogout={handleLogout} />
-      <div>
+      <div style={{ width: '70%', margin: '0 auto', border:'20px dark'}}>
         <h4>Referred Candidates Details:</h4>
       </div>
-      <Row>
+      <Row style={{ width: '70%', margin: '0 auto' }}>
         <Col md={6}>
-          {/* <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>S.NO</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email ID</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {candidates.length > 0 && candidates.map((candidate, index) => {
-                return (
-                  <tr key ={index}>
-                    <td>{index}</td>
-                    <td>{candidate.firstName}</td>
-                    <td>{candidate.lastName}</td>
-                    <td>{candidate.emailID}</td>
-                    <td>{candidate.status}</td>
-                  </tr>
-                )
-              }
-              )}
-            </tbody>
-          </Table> */}
           <MDBTable>
             <MDBTableHead light style= {{color: '#3b71ca'}}>
               <tr>
@@ -103,13 +77,13 @@ export default function Referrals({ emailId: emailId, candidateId: candidateId, 
             </MDBTableBody>
           </MDBTable>
         </Col>
-        <Col md={6}>
-          <Row>Referral Bonus Details </Row>
+        <Col md={6} >
+          <Row style={{ width: '70%', margin: '0 auto', border:'20px dark'}}><h5>Referral Bonus Details </h5></Row>
           <Row>
             <Col md={6}>
               Number of Consultants Referred
             </Col>
-            <Col>
+            <Col >
               :{bonusDetails.length > 0 && bonusDetails[0].creditValue}</Col>
           </Row>
           <Row>

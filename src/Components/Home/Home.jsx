@@ -28,8 +28,8 @@ export default function Home({userEmail,candidateId,handleLogout}) {
 
     <React.Fragment>
       <NavigationBar userEmail={userEmail} candidateId={candidateId} handleLogout={handleLogout} />
-      <MDBListGroup className="homemdlistgroup">
-        <MDBCard className="homemdbheight">
+      <MDBListGroup style={{ width: '70%', margin: '0 auto' }} className="homemdlistgroup">
+        <MDBCard style={{ zIndex: 1 }} border='10px solid red' className="mx-auto w-100 mb-3" >
           <MDBRow className='d-flex justify-content-center align-items-center g-0'>
             <MDBCol md='4' className='square bg-primary rounded-pill'>
               <MDBCardImage src={require('./Referral Program Picture.png')} alt='Refer your Friends' fluid />
@@ -45,7 +45,7 @@ export default function Home({userEmail,candidateId,handleLogout}) {
           </MDBRow>
         </MDBCard>
 
-        <MDBCard>
+        <MDBCard style={{ zIndex: 2 }} border='10px solid red' className="mx-auto w-100 mb-3" >
           <MDBRow className='d-flex justify-content-center align-items-center g-0'>
             <MDBCol md='8' className='square rounded-9'>
               <MDBCardBody>
@@ -61,7 +61,7 @@ export default function Home({userEmail,candidateId,handleLogout}) {
           </MDBRow>
         </MDBCard>
 
-        <MDBCard>
+        <MDBCard style={{ zIndex: 3 }}>
           <MDBRow className='d-flex justify-content-center align-items-center g-0'>
             <MDBCol md='4'>
               <MDBCardImage src={require('./Business Lead.jpg')} alt='My Business Image' fluid />
@@ -74,12 +74,11 @@ export default function Home({userEmail,candidateId,handleLogout}) {
                 </MDBCardText>
               </MDBCardBody>
             </MDBCol>
-
           </MDBRow>
-
         </MDBCard>
       </MDBListGroup>
-      <span><h3>If you have any questions, please visit our <a href="www.google.com">FAQ</a></h3></span>
+
+     
     </React.Fragment>
 
   );

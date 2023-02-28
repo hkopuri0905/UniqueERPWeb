@@ -27,10 +27,8 @@ import {
 export default function Login({setUserEmail, setOTP,userEmail, OTP,requestOTP,login }) {
   const [display, setDisplay] = useState("");
   const [displayContent, setDisplayContent] = useState();
-  //const [userEmail, setUserEmail] = useState();
-  //const [OTP, setOTP] = useState();
-  //const [userLoggedin, setUserLoggedin] = useState(false);
-  //const [candidateId, setCandidateId] = useState("");
+
+
   
 
  
@@ -42,11 +40,6 @@ export default function Login({setUserEmail, setOTP,userEmail, OTP,requestOTP,lo
     setOTP(event.target.value);
   }
 
-  // useEffect(() => {
-  //   if (userLoggedin) {
-  //     setDisplay("home");
-  //   }
-  // }, [userLoggedin]);
 
   function changeDisplay(display) {
     setDisplay(display);
@@ -70,6 +63,7 @@ export default function Login({setUserEmail, setOTP,userEmail, OTP,requestOTP,lo
 
               <MDBInput
                 label='Enter registered email'
+                
                 wrapperClass='mb-4 w-100'
                 id='typeEmail'
                 required

@@ -7,86 +7,81 @@ import {
   MDBNavbarNav,
   MDBNavbarItem,
   MDBNavbarLink,
+  MDBIcon,
   MDBCollapse,
   MDBNavLink,
-  MDBRow, MDBCol 
+  MDBFooter,
+  MDBListGroup,
+  MDBRow, MDBCol
 } from 'mdb-react-ui-kit';
 
 import { Link } from 'react-router-dom';
 
-export default function NavigationBar({userEmail,candidateId,handleLogout}) {
+export default function NavigationBar({ userEmail, candidateId, handleLogout }) {
 
-  // return (
-  //   <Row>
-  //     <Col md={3} onClick={() => rout("home")}>
-  //     <Link to={this.props.myroute} onClick={hello}>Here</Link>
-  //       <Button className="navigation_item">Home </Button>
-  //     </Col>
-  //     <Col md={3} onClick={() => changeDisplay("myReferrals")}>
-  //       <Button className="navigation_item">Referrals </Button>
-  //     </Col>
-  //     <Col md={3} onClick={() => changeDisplay("invite")}>
-  //       <Button className="navigation_item">Invite</Button>
-  //     </Col>
-  //   </Row>
-  // );
-
-  
-  // return (
-  //   <div>
-  //     {userLoggedin? (
-  //       <div>
-  //         <p>You are logged in.</p>
-  //         <button onClick={handleLogout}>Logout</button>
-  //       </div>
-  //     ) : (
-  //       <div>
-  //         <p>You are logged out.</p>
-  //         <p>Please log in to continue.</p>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-      
-
+  const [showNavColor, setShowNavColor] = useState(false);
+  const [showNavColorSecond, setShowNavColorSecond] = useState(false);
+  const [showNavColorThird, setShowNavColorThird] = useState(false);
 
   return (
-    <div>
-
-   
-    <MDBNavbar expand='lg' light bgColor='light'>
-      <MDBContainer fluid>
-        <MDBCollapse navbar >
-          <MDBNavbarNav>
-            <MDBNavbarItem>
-              <MDBNavbarLink><Link to="/home">Home</Link></MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink><Link to="/referrals"> Referrals</Link></MDBNavbarLink >
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink><Link to="/invite">Invite</Link> 
-              </MDBNavbarLink >
+    <div className='navBarHome'>
+      <MDBNavbar expand='lg' light bgColor='light'>
+        <MDBContainer fluid>
+          <MDBNavbarBrand href='#'>
+            <img
+              src={require('./file.png')}
+              height='30'
+              alt=''
+              loading='lazy'
+            />
+          </MDBNavbarBrand>
+          <MDBNavbarToggler
+            type='button'
+            data-target='#navbarColor02'
+            aria-controls='navbarColor02'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+            onClick={() => setShowNavColor(!showNavColor)}
+          >
+            <MDBIcon icon='bars' fas />
+          </MDBNavbarToggler>
+          <MDBCollapse show={showNavColor} navbar>
+            <MDBNavbarNav>
+              <MDBNavbarItem>
+                <MDBNavbarLink><Link to="/home">Home</Link></MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-              <MDBNavbarLink onClick={handleLogout}><Link to="/">Logout</Link> 
-              </MDBNavbarLink >
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBContainer>
-    </MDBNavbar>
-    <MDBRow>
+                <MDBNavbarLink><Link to="/referrals"> Referrals</Link></MDBNavbarLink >
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink><Link to="/invite">Invite</Link>
+                </MDBNavbarLink >
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink onClick={handleLogout}><Link to="/">Logout</Link>
+                </MDBNavbarLink >
+              </MDBNavbarItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBContainer>
+      </MDBNavbar>
+      <MDBRow style={{ textAlign: 'left' }}>
         <MDBCol size='md'>
-         
+
         </MDBCol>
-        <MDBCol size='md'>
-        <h4>EmailId:{userEmail}</h4>
+        <MDBCol size='sm'>
+          <h5>Email-Id:{userEmail}</h5>
         </MDBCol>
-        <MDBCol size='md'>
-        <h4>CandidateId:{candidateId}</h4>
+        <MDBCol size='sm'>
+          <h5>CandidateId:{candidateId}</h5>
         </MDBCol>
       </MDBRow>
+      <MDBFooter style={{ width: '70%', margin: '0 auto', bottom: '0' }} className='text-center' color='white' bgColor='dark'>
+        <span><h3>If you have any questions, please visit our <a href="https://contingentpros.com/faqs">FAQ</a></h3></span>
+      </MDBFooter>
+  
     </div>
+    
   );
-}
+  }
+  

@@ -267,9 +267,15 @@ div {
 
 .homemdlistgroup{
   margin: 0 25px;
+  border: '1px solid black';
+  height: '100px'
 
 }
 
 .homemdbheight{
   height: 300px;
+}
+
+.navBarHome{
+
 }

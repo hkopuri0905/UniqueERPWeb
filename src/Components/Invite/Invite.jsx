@@ -23,16 +23,26 @@ import NavigationBar from "../Navbar";
 
 export default function Invite({changeDisplay,userEmail,candidateId,handleLogout}) {
 
-  const [candidateID, setCandidateID] = useState();
-  const [userEmailID, setUserEmailID] = useState();
+  //const [candidateId, setCandidateID] = useState();
+  //const [uuserEmail, setUserEmailID] = useState();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [emailID, setEmailID] = useState();
   const [yourName, setYourName] = useState();
 
+  const [clearModal, setClearToggle] = useState(false);
+
+  const cleartoggle = () => {
+    setFirstName("")
+    setLastName("")
+    setEmailID("")
+    setYourName("")
+    setClearToggle(!clearModal);
+  }
+
   function clear() {
-    setCandidateID("");
-    setUserEmailID("");
+    //setCandidateID("");
+    //setUserEmailID("");
     setFirstName("");
     setLastName("");
     setEmailID("");
@@ -43,13 +53,23 @@ export default function Invite({changeDisplay,userEmail,candidateId,handleLogout
     changeDisplay("myReferrals");
   }
 
+  const [alert, setAlert] = useState(null);
+
+  function Alert(props) {
+    return (
+      <div className={`alert alert-${props.type}`} role="alert">
+        {props.message}
+      </div>
+    );
+  }
+
   async function sendInvite() {
     await fetch("https://www.contingentpro.com/invite", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        candidateId: candidateID,
-        email: userEmailID,
+        candidateId: candidateId,
+        email: userEmail,
         inviteeFirstName: firstName,
         inviteeLastName: lastName,
         inviteeEmailId: emailID,
@@ -58,7 +78,7 @@ export default function Invite({changeDisplay,userEmail,candidateId,handleLogout
     })
       .then((response) => response.json())
       .then((x) => {
-        if (x.status) { alert(x.message) }
+        if (x.status) { alert("Invite was sent to the Candidate") }
         else {
           alert(x.message)
         }
@@ -126,7 +146,7 @@ export default function Invite({changeDisplay,userEmail,candidateId,handleLogout
           <MDBCol className='d-flex align-items-center justify-content-center'>
             <MDBBtn type='submit' 
             color='secondary'
-            onClick={() => clear()}
+            onClick={cleartoggle}
             >
               Clear
             </MDBBtn>

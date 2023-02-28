@@ -27,6 +27,7 @@ function App() {
     const [userEmail, setUserEmail] = useState();
     const [OTP, setOTP] = useState();
     const navigate = useNavigate();
+    const [alertMessage, setAlertMessage] = useState(null);
     //const [userLoggedin, setUserLoggedin] = useState(false);
     const [candidateId, setCandidateId] = useState("");
     function requestOTP() {
@@ -54,10 +55,12 @@ function App() {
         .then((resp) => resp.json())
         .then((res) => {
           //var x = res;  
+         
           if (res.candidateId)  {
           setCandidateId(res.candidateId);
           setUserLoggedin(true);
           navigate("/home");
+          setAlertMessage('Login successful!')
           }
         })
         .catch((error) => console.error(error));
